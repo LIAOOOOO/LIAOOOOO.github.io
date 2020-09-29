@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>urlShort</title>
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script> 
+      <script>
+        function progress() {
+      var input = $("#url").val();
+      $.ajax({
+               url: "s1063513_HW4.php",
+               data: {
+                   name : input
+               },
+               type: "GET",
+               success: function( output ) {
+                     $( "#out" ).html(output);
+               },
+        error : function(){
+        alert( "Request failed." );
+    }
+      });
+      $("#url").val("")
+  }
+      </script>
+<style type = "text/css">
+         input[type="submit"]{padding:5px 35px; background:#ccc; border:0 none;
+               cursor:pointer;-webkit-border-radius: 5px;border-radius: 5px; }
+         input[type="text"]{padding:5px 205px; border:2px black solid;
+               cursor:pointer;-webkit-border-radius: 5px;border-radius: 5px; }
+    
+         .demo{ padding-top: 50px;
+                text-align: center}
+         body  { font-family: sans-serif;
+                 background-color: lightyellow; }
+         table { background-color: lightblue;
+                 border-collapse: collapse;
+                 border: 1px solid gray; }
+         td    { padding: 5px; }
+         tr:nth-child(odd) { background-color: white; }
+      </style>
+</head>
+<body>
+<form action="#" method="">
+  <h1>Welcome to use the URL Shortener</h1>
+  <div class="container-fluid">
+        <div class="row" align="center">
+            <div class="col-lg-2" align="center"></div>
+            <div class="col-lg-8" align="center">
+           <div class="demo">
+
+            <input type="text" name="url" class="urltext" id = url>
+            <input type="submit" class="submitBtn" value="提交" id = submit onclick = "progress()">
+<!--<input type="text" size="16" name="url" placeholder="輸入網址" >
+
+<input type="submit" value="生成" />-->
+           <br>
+           <div id = "out"></div>
+</form>
+</body>
+</html>
